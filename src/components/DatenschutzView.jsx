@@ -48,14 +48,7 @@ export default function DatenschutzView({ onBack }) {
             <p>
               Verantwortlicher im Sinne der DSGVO und sonstiger nationaler Datenschutzgesetze ist:
             </p>
-            <div className="mt-2 p-4 bg-slate-50 rounded-lg border border-slate-200 font-medium text-slate-900">
-              Jens Kathe<br />
-              Hansastraße 6<br />
-              34119 Kassel<br />
-              Deutschland<br />
-              E-Mail: jens@kathe.org<br />
-              Telefon: +49 178 6652623
-            </div>
+            <div className="mt-2 p-4 bg-slate-50 rounded-lg border border-slate-200 text-slate-700">Verantwortlicher im Sinne der DSGVO ist der Betreiber dieser Website. Vollständige Anschrift und Kontaktdaten entnehmen Sie bitte dem Impressum.</div>
           </section>
 
           {/* 2. Erhebung beim Aufruf */}

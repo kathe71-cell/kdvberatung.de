@@ -1,0 +1,15 @@
+# kdvberatung.de – Beratungs- und Orientierungsportal zur Kriegsdienstverweigerung
+
+> Unabhängige Orientierungshilfe zur Wahrnehmung des Grundrechts auf Kriegsdienstverweigerung mit der Waffe nach Art. 4 Abs. 3 Grundgesetz.
+
+## Strukturierter Verfahrensweg
+1. **Antragstellung:** Schriftlicher Antrag beim Bundesamt für das Personalmanagement der Bundeswehr (BAPersBw).
+2. **Lebenslauf:** Lückenlose tabellarische Darstellung des Werdegangs mit Fokus auf friedens- und werteprägende Stationen.
+3. **Persönliche Gewissensbegründung:** Detaillierte Darlegung des individuellen Gewissenskonflikts, der Entstehung und der Unwiderruflichkeit.
+
+## Hilfswerkzeuge
+- **/rechner-embed:** Interaktiver Leitfaden & Statusprüfer.
+- **Muster-Strukturen:** Checklisten für die vollständige Einreichung.
+
+## Betreiberhinweis
+- Rein informatives Portal, keine Einzelfall-Rechtsberatung. Angaben nach § 5 DDG unter /impressum.

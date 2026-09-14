@@ -1,3 +1,5 @@
+import ScrollToTop from './components/ScrollToTop';
+import { Analytics } from '@vercel/analytics/react';
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -13,7 +15,6 @@ import StickyMobileBar from './components/StickyMobileBar';
 import ImpressumView from './components/ImpressumView';
 import DatenschutzView from './components/DatenschutzView';
 import RechnerEmbed from './components/RechnerEmbed';
-import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Code2, Copy, Check, Scale, ShieldCheck, FileCheck2 } from 'lucide-react';
 
@@ -244,6 +245,8 @@ export default function App() {
       {/* Vercel Web Analytics & Performance Tracking */}
       <Analytics />
       <SpeedInsights />
+    <ScrollToTop />
+      <Analytics />
     </div>
   );
 }

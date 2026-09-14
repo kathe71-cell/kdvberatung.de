@@ -115,10 +115,8 @@ export default function Footer({ onOpenLegal }) {
                 </button>
               </li>
               <li className="pt-2 text-[11px] text-slate-500">
-                Anbieter:<br />
-                Jens Kathe<br />
-                Hansastraße 6, 34119 Kassel<br />
-                E-Mail: jens@kathe.org
+                Unabhängiges Informationsportal.<br />
+                Vollständige Betreiberangaben siehe Impressum.
               </li>
             </ul>
           </div>

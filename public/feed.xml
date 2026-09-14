@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>kdvberatung.de – Beratungsportal zur Kriegsdienstverweigerung</title>
+    <link>https://kdvberatung.de/</link>
+    <description>Rechtliche Grundlagen, Gewissensprüfung und Verfahrensweg für Kriegsdienstverweigerer nach Art. 4 Abs. 3 GG.</description>
+    <language>de-DE</language>
+    <lastBuildDate>Mon, 14 Sep 2026 10:25:27 GMT</lastBuildDate>
+    <atom:link href="https://kdvberatung.de/feed.xml" rel="self" type="application/rss+xml"/>
+    <item>
+      <title>KDV Verfahrens- & Status-Check</title>
+      <link>https://kdvberatung.de/rechner-embed</link>
+      <description>Prüfung des individuellen Verfahrenswegs nach Art. 4 Abs. 3 GG.</description>
+      <pubDate>Mon, 14 Sep 2026 10:25:27 GMT</pubDate>
+      <guid>https://kdvberatung.de/rechner-embed</guid>
+    </item>
+    <item>
+      <title>Leitfaden für die persönliche Gewissensbegründung</title>
+      <link>https://kdvberatung.de/#guide</link>
+      <description>Kriterien und Argumentationsstruktur für die Verweigerung.</description>
+      <pubDate>Mon, 14 Sep 2026 10:25:27 GMT</pubDate>
+      <guid>https://kdvberatung.de/#guide</guid>
+    </item>
+  </channel>
+</rss>
