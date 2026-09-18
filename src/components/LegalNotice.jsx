@@ -1,5 +1,5 @@
 import React from 'react';
-import { Scale, BookOpen, ShieldAlert, CheckCircle } from 'lucide-react';
+import { Scale } from 'lucide-react';
 
 export default function LegalNotice() {
   return (
@@ -15,7 +15,7 @@ export default function LegalNotice() {
             Verfassungsrechtliche Grundlagen der KDV
           </h2>
           <p className="text-sm text-slate-600 mt-2">
-            Die Kriegsdienstverweigerung ist im Grundgesetz der Bundesrepublik Deutschland als schrankenloses Grundrecht verankert.
+            Die Kriegsdienstverweigerung ist im Grundgesetz der Bundesrepublik Deutschland als Grundrecht verankert.
           </p>
         </div>
 
@@ -33,11 +33,11 @@ export default function LegalNotice() {
                 „Niemand darf gegen sein Gewissen zum Kriegsdienst mit der Waffe gezwungen werden.“
               </p>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Dieses Grundrecht schützt jede Person, die den bewaffneten Kriegsdienst aus existenzieller Gewissensnot ablehnt. Es gilt ohne Vorbehalt und steht jedem Staatsbürger zu.
+                Dieses Grundrecht schützt jede Person, die den bewaffneten Kriegsdienst aus existenzieller Gewissensnot ablehnt.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500">
-              Verfassungsrechtlich unantastbar
+              Verfassungsrang
             </div>
           </div>
 
@@ -50,10 +50,10 @@ export default function LegalNotice() {
                 Kriegsdienstverweigerungsgesetz (KDVG)
               </h3>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed my-3">
-                Das KDVG regelt das behördliche Verwaltungsverfahren: Zuständigkeit des Bundesamts für das Personalmanagement der Bundeswehr, Antragsfristen, Vorprüfung und Rechtsmittel.
+                Regelt das Verfahren: Einreichung bei BAPersBw – Wehrersatzbehörde – (Köln), Weiterleitung und Entscheidung durch das BAFzA.
               </p>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Besonders wichtig: <strong>§ 2 Abs. 2 KDVG</strong> garantiert Schutz vor Waffendienst ab förmlichem Antragseingang bis zum Abschluss des Prüfverfahrens.
+                Schutzbestimmungen bezüglich des Dienstes mit der Waffe sind in <strong>§ 3 Abs. 2 &amp; § 13 KDVG</strong> nach gesetzlichen Kriterien geregelt.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500">
@@ -70,14 +70,14 @@ export default function LegalNotice() {
                 Bundesverfassungsgericht (BVerfG)
               </h3>
               <p className="text-xs sm:text-sm text-slate-700 leading-relaxed my-3">
-                Das BVerfG definiert die Gewissensentscheidung als: „Jede ernste, sittliche, an den Kategorien von Gut und Böse orientierte Entscheidung, die das Individuum innerlich bindet.“
+                Das BVerfG definiert die Gewissensentscheidung als ernste, sittliche Entscheidung, an den Kategorien von Gut und Böse orientiert, die das Individuum innerlich bindet.
               </p>
               <p className="text-xs text-slate-600 leading-relaxed">
-                Eine Ablehnung des Tötens darf daher weder leichtfertig noch rein taktisch motiviert sein, sondern muss eine innere Notwendigkeit darstellen.
+                Erforderlich ist eine persönliche, glaubwürdige Gewissensbegründung in eigenen Worten.
               </p>
             </div>
             <div className="mt-4 pt-3 border-t border-slate-200 text-[11px] text-slate-500">
-              Leitentscheidungen BVerfGE 12, 45 u. a.
+              Leitentscheidungen des BVerfG
             </div>
           </div>
 

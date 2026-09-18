@@ -1,5 +1,5 @@
 import React from 'react';
-import { Shield, Scale, ExternalLink } from 'lucide-react';
+import { Shield, Scale } from 'lucide-react';
 
 export default function Footer({ onOpenLegal }) {
   const scrollTo = (id) => {
@@ -16,7 +16,7 @@ export default function Footer({ onOpenLegal }) {
         {/* Main Footer Grid */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 pb-12 border-b border-slate-800">
           
-          {/* Col 1: Brand & Constitutional Mission */}
+          {/* Col 1: Brand & Mission */}
           <div className="md:col-span-2">
             <div className="flex items-center gap-2.5 mb-3">
               <div className="w-8 h-8 rounded-lg bg-slate-800 flex items-center justify-center text-emerald-400">
@@ -27,11 +27,11 @@ export default function Footer({ onOpenLegal }) {
               </span>
             </div>
             <p className="text-slate-400 text-xs leading-relaxed max-w-md mb-4">
-              Unabhängiges Informations- und Bürgerportal zum Grundrecht auf Kriegsdienstverweigerung nach Artikel 4 Absatz 3 des Grundgesetzes für die Bundesrepublik Deutschland. Hilfestellung für Ungediente, aktive Soldaten und Reservisten.
+              Unabhängiges Informations- und Bürgerportal zum Grundrecht auf Kriegsdienstverweigerung nach Artikel 4 Absatz 3 des Grundgesetzes. Hilfestellung für Ungediente, aktive Soldaten und Reservisten.
             </p>
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-lg bg-slate-900 border border-slate-800 text-[11px] text-slate-300">
               <Scale className="w-3.5 h-3.5 text-emerald-400 shrink-0" />
-              <span>100 % DSGVO-konform • Zero-CDN • Keine Tracking-Cookies</span>
+              <span>DSGVO-konformes Cloud-Hosting &amp; Performance-Messung</span>
             </div>
           </div>
 
@@ -123,13 +123,13 @@ export default function Footer({ onOpenLegal }) {
 
         </div>
 
-        {/* Mandatory Affiliate & Independent Portal Disclosure */}
+        {/* Legal Disclaimer */}
         <div className="pt-6 pb-4 text-[11px] text-slate-500 leading-relaxed border-b border-slate-900">
           <p className="mb-2">
-            <strong>Rechtlicher Hinweis &amp; Unabhängigkeitserklärung:</strong> Dieses Portal ist ein unabhängiges Angebot und steht in keinem gesellschaftsrechtlichen, organisatorischen oder behördlichen Verhältnis zur Bundeswehr, dem Bundesministerium der Verteidigung (BMVg) oder dem Bundesamt für das Personalmanagement der Bundeswehr (BAPersBw). Sämtliche bereitgestellten Inhalte dienen der allgemeinen Orientierung und ersetzen im Streitfall keine Rechtsberatung durch eine zugelassene Rechtsanwältin oder einen Rechtsanwalt.
+            <strong>Rechtlicher Hinweis &amp; Unabhängigkeitserklärung:</strong> Dieses Portal ist ein unabhängiges Angebot und steht in keinem gesellschaftsrechtlichen, organisatorischen oder behördlichen Verhältnis zur Bundeswehr, dem Bundesministerium der Verteidigung (BMVg), dem Bundesamt für das Personalmanagement der Bundeswehr (BAPersBw) oder dem Bundesamt für Familie und zivilgesellschaftliche Aufgaben (BAFzA). Sämtliche bereitgestellten Inhalte dienen der allgemeinen Orientierung und ersetzen im Streitfall keine individuelle Rechtsberatung.
           </p>
           <p>
-            * Mit einem Sternchen (*) gekennzeichnete Verweise oder Buttons sind Weiterempfehlungen, Partnerlinks oder Kontaktvermittlungen zu gemeinnützigen Fachstellen bzw. Fachanwälten. Das behördliche Prüfverfahren beim BAPersBw ist gesetzlich gebührenfrei.
+            Das behördliche Prüfungsverfahren bei BAPersBw und BAFzA ist gesetzlich gebührenfrei.
           </p>
         </div>
 

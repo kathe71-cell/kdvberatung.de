@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
-import { CheckSquare, Copy, Check, Printer, FileText, Download, AlertCircle, Shield } from 'lucide-react';
+import React, { useState, useEffect } from 'react';
+import { CheckSquare, Copy, Check, Printer, FileText } from 'lucide-react';
 import { sampleLetters, documentChecklist } from '../data/sampleLetter';
 
 export default function ChecklistSection({ preselectedLetter = 'ungediente' }) {
   const [activeTab, setActiveTab] = useState(preselectedLetter);
   const [copied, setCopied] = useState(false);
   const [checkedItems, setCheckedItems] = useState({});
+
+  useEffect(() => {
+    if (preselectedLetter) {
+      setActiveTab(preselectedLetter);
+    }
+  }, [preselectedLetter]);
 
   const toggleCheck = (id) => {
     setCheckedItems((prev) => ({ ...prev, [id]: !prev[id] }));
@@ -39,10 +45,10 @@ export default function ChecklistSection({ preselectedLetter = 'ungediente' }) {
             Muster-Vorlagen &amp; Unterlagen-Checkliste
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight">
-            Antragsmappe rechtssicher zusammenstellen
+            Antragsmappe vorbereiten
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-3">
-            Nutzen Sie unsere praxiserprobten Anschreiben-Muster und haken Sie die benötigten Anlagen für den Postversand schrittweise ab.
+            Nutzen Sie unsere Orientierungsmuster für das Anschreiben an BAPersBw (Köln) und haken Sie benötigte Anlagen vor dem Versand ab.
           </p>
         </div>
 
@@ -117,7 +123,7 @@ export default function ChecklistSection({ preselectedLetter = 'ungediente' }) {
             </div>
 
             <div className="mt-4 text-[11px] text-slate-500 italic">
-              * Hinweis: Passen Sie die Platzhalter in eckigen Klammern [ ] an Ihre persönlichen Daten an. Denken Sie daran, dass das Anschreiben eigenhändig mit Tinte unterschrieben werden muss.
+              Hinweis: Platzhalter in eckigen Klammern [ ] durch persönliche Daten ersetzen. Das Schreiben muss eigenhändig unterschrieben werden.
             </div>
           </div>
 
@@ -134,7 +140,7 @@ export default function ChecklistSection({ preselectedLetter = 'ungediente' }) {
             </div>
 
             <p className="text-xs text-slate-600 mb-4 leading-relaxed">
-              Haken Sie vor dem Absenden alle Dokumente ab, um Verzögerungen oder formelle Rückfragen des BAPersBw zu vermeiden:
+              Haken Sie benötigte Dokumente vor dem Absenden ab:
             </p>
 
             <div className="space-y-3">
@@ -163,9 +169,13 @@ export default function ChecklistSection({ preselectedLetter = 'ungediente' }) {
                         <span className={`text-xs font-bold ${isChecked ? 'text-emerald-950 line-through' : 'text-slate-900'}`}>
                           {item.title}
                         </span>
-                        {item.mandatory && (
+                        {item.mandatory ? (
                           <span className="text-[10px] font-bold text-amber-700 bg-amber-50 px-1.5 py-0.2 rounded border border-amber-200">
                             Pflicht
+                          </span>
+                        ) : (
+                          <span className="text-[10px] font-medium text-slate-500 bg-slate-100 px-1.5 py-0.2 rounded">
+                            Option
                           </span>
                         )}
                       </div>
@@ -182,7 +192,7 @@ export default function ChecklistSection({ preselectedLetter = 'ungediente' }) {
             {completedMandatory === totalMandatory && (
               <div className="mt-5 p-3.5 rounded-xl bg-emerald-100 text-emerald-900 text-xs font-bold flex items-center gap-2 border border-emerald-300">
                 <Check className="w-4 h-4 text-emerald-800" />
-                <span>Alle Pflichtdokumente sind versandbereit!</span>
+                <span>Alle erforderlichen Hauptunterlagen sind abgehakt!</span>
               </div>
             )}
           </div>

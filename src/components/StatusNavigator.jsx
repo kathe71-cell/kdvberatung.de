@@ -1,80 +1,144 @@
 import React, { useState } from 'react';
 import { Compass, CheckCircle2, AlertCircle, ArrowRight, FileText, Send, Building, Clock, Info } from 'lucide-react';
 
-export default function StatusNavigator({ onOpenLetter, onOpenChecklist }) {
+export default function StatusNavigator({ onOpenLetter, onOpenChecklist, onOpenBeratungsstellen }) {
   const [status, setStatus] = useState('ungediente');
   const [conflictType, setConflictType] = useState('ethisch');
-  const [urgency, setUrgency] = useState('vorsorglich');
+  const [hasBescheid, setHasBescheid] = useState('bitte_auswaehlen');
+  const [fg13, setFg13] = useState('bitte_auswaehlen');
 
   // Matrix configuration
   const config = {
     ungediente: {
-      title: "Ungediente Bürger / Junge Menschen nach Wehrerfassung",
-      authority: "Karrierecenter der Bundeswehr (zuständig für Ihren Wohnort)",
-      authorityDetail: "Weiterleitung an das Bundesamt für das Personalmanagement der Bundeswehr (BAPersBw), Referat KDV, 53757 Sankt Augustin",
-      submissionWay: "Schriftlich per Einschreiben mit Rückschein direkt an das für Ihren Wohnort zuständige Karrierecenter der Bundeswehr.",
-      protectionEffect: "Verhindert die Einberufung zum Dienst an der Waffe. Eine amtsärztliche Tauglichkeitsprüfung (Musterung) kann dennoch durchgeführt werden.",
-      processingTime: "Ca. 2 bis 6 Monate (nach vollständigem Eingang aller Unterlagen)",
+      title: "Ungediente Bürger / Erfasste Personen",
+      authority: "BAPersBw – Wehrersatzbehörde – (Köln)",
+      authorityAddress: "Militärringstraße 1000, 50737 Köln",
+      decidingAuthority: "Bundesamt für Familie und zivilgesellschaftliche Aufgaben (BAFzA)",
+      submissionWay: "Schriftlich direkt an das BAPersBw – Wehrersatzbehörde – (Köln) zur Weiterleitung an das BAFzA.",
+      protectionEffectNoBescheid: "Gemäß § 3 Abs. 2 Satz 1 KDVG werden ungediente Kriegsdienstverweigerer von der Einberufung zum Grundwehrdienst bis zur unanfechtbaren Ablehnung oder Rücknahme ihres Antrags nicht einberufen.",
+      protectionEffectHasBescheidJahrgang: "Gesetzliche Konstellation nach § 13 Abs. 1 KDVG: Für ungediente Antragsteller, die vor dem 1. Januar 2010 geboren sind, gelten die Sonderregelungen des § 13 KDVG für das Prüfungsverfahren und die Weiterleitung.",
+      protectionEffectHasBescheidAnderer: "Fälle außerhalb des § 13 Abs. 1 KDVG: Liegt ein Einberufungs- oder Heranziehungsbescheid vor und sind die Kriterien des § 13 Abs. 1 KDVG nicht erfüllt, hemmt der KDV-Antrag die Vollziehung nicht automatisch (§ 3 Abs. 2 Satz 2 KDVG). Vorläufiger Rechtsschutz (§ 80 Abs. 5 VwGO) kann beim zuständigen Verwaltungsgericht beantragt werden.",
+      processingTime: "Behördliche Bearbeitungsdauer abhängig von Vollständigkeit der Unterlagen und BAFzA-Prüfung",
       documentsRequired: [
         "Schriftlicher, eigenhändig unterschriebener KDV-Antrag",
         "Lückenloser tabellarischer Lebenslauf",
-        "Ausführliche persönliche Gewissensbegründung (authentisch verfasst)",
-        "Ggf. Kopie des Personalausweises / Meldebescheinigung"
+        "Ausführliche persönliche Gewissensbegründung (selbst verfasst)",
+        "Ggf. Kopie des Ausweisdokuments / Meldebescheinigung"
       ],
       recommendedLetter: "ungediente",
-      badge: "Kein aktives Dienstverhältnis"
+      badge: "Ungedient"
     },
     musterung: {
-      title: "Musterungsaufforderung / Akute Erfassung",
-      authority: "Karrierecenter der Bundeswehr (Postadresse auf Ihrem Bescheid)",
-      authorityDetail: "Sofortige Vorlage bei der Musterungsstelle und Weiterleitung an das BAPersBw",
-      submissionWay: "Schriftlich per Einwurf-Einschreiben / Vorlage bei der Musterung. Fristen auf dem Bescheid genau beachten!",
-      protectionEffect: "Musterung findet in der Regel statt (Feststellung Tauglichkeitsgrad T1-T5). Keine Einberufung zur Truppe bis zur rechtskräftigen Entscheidung über den KDV-Antrag.",
-      processingTime: "Ca. 1 bis 4 Monate (Vorrangige Prüfung bei nahendem Einberufungstermin)",
+      title: "Musterungsaufforderung / Erfassungsverfahren",
+      authority: "BAPersBw – Wehrersatzbehörde – (Köln)",
+      authorityAddress: "Militärringstraße 1000, 50737 Köln",
+      decidingAuthority: "Bundesamt für Familie und zivilgesellschaftliche Aufgaben (BAFzA)",
+      submissionWay: "Schriftlich an die Wehrersatzbehörde (BAPersBw Köln) unter Bezugnahme auf das Aktenzeichen des Musterungsschreibens.",
+      protectionEffectNoBescheid: "Eine Ladung zur amtsärztlichen Musterung bleibt wirksam. Gemäß § 3 Abs. 2 Satz 1 KDVG schützt der Antrag vor der Einberufung zum Grundwehrdienst bis zur unanfechtbaren Entscheidung.",
+      protectionEffectHasBescheidJahrgang: "Verfahren nach § 13 Abs. 1 KDVG: Geht nach der Musterung ein Bescheid zu und sind die gesetzlichen Voraussetzungen des § 13 Abs. 1 KDVG erfüllt, greifen die Sonderregelungen zur Antragweiterleitung.",
+      protectionEffectHasBescheidAnderer: "Kein automatischer Schutz (§ 3 Abs. 2 Satz 2 KDVG): Bei vorliegendem Bescheid ohne Vorliegen der Voraussetzungen des § 13 Abs. 1 KDVG entsteht kein automatischer Vollzugsschutz. Vorläufiger Rechtsschutz ist per Eilantrag (§ 80 Abs. 5 VwGO) beim zuständigen Verwaltungsgericht zu beantragen.",
+      processingTime: "Prüfung durch BAFzA nach Vorprüfung durch die Wehrersatzbehörde",
       documentsRequired: [
-        "Eilbedürftiger schriftlicher KDV-Antrag mit Aktenzeichen des Bescheids",
+        "Schriftlicher KDV-Antrag (unter Bezug auf das Musterungsschreiben)",
         "Tabellarischer Lebenslauf",
-        "Gewissensbegründung (Fokus auf Unvereinbarkeit mit dem Wehrdienst)",
-        "Kopie der Musterungsaufforderung / des Schreibens"
+        "Persönliche Gewissensbegründung",
+        "Kopie des Anschreibens / Bescheids"
       ],
       recommendedLetter: "ungediente",
-      badge: "Fristgebunden & Eilbedürftig"
+      badge: "Musterung"
     },
     soldat: {
       title: "Aktive Soldatinnen und Soldaten (SaZ / FWDL / Berufssoldaten)",
-      authority: "Auf dem Dienstweg über den Disziplinarvorgesetzten",
-      authorityDetail: "Entscheidung trifft das Bundesamt für das Personalmanagement der Bundeswehr (BAPersBw)",
-      submissionWay: "Förmlich auf dem Dienstweg schriftlich bei der/dem zuständigen Kompaniechefin/Kompaniechef bzw. Staffelkapitän einzureichen.",
-      protectionEffect: "Gemäß § 2 Abs. 2 KDVG dürfen Sie ab Antragstellung bis zur Entscheidung nicht mehr zu Handlungen mit der Waffe herangezogen werden.",
-      processingTime: "Ca. 3 bis 9 Monate (inkl. Stellungnahme des Vorgesetzten & BAPersBw-Prüfung)",
+      authority: "BAPersBw – Wehrersatzbehörde – (Köln)",
+      authorityAddress: "Militärringstraße 1000, 50737 Köln (Kopie nachrichtlich an Disziplinarvorgesetzte/n)",
+      decidingAuthority: "Bundesamt für Familie und zivilgesellschaftliche Aufgaben (BAFzA)",
+      submissionWay: "Schriftlich direkt an die Wehrersatzbehörde (BAPersBw Köln) mit nachrichtlicher Kenntnisnahme an den Disziplinarvorgesetzten.",
+      protectionEffectNoBescheid: "Nach KDVG greifen gesetzliche Schutzbestimmungen bezüglich der Ausbildung und Verwendung an der Waffe während des laufenden Prüfungsverfahrens.",
+      protectionEffectHasBescheidJahrgang: "Dienstverhältnis & Bescheidlage: Bei aktiven Soldaten gelten für KDV-Anträge und Bescheide die besonderen Bestimmungen des KDVG und des Soldatengesetzes. Ein eigenmächtiges Fernbleiben vom Dienst ist unzulässig.",
+      protectionEffectHasBescheidAnderer: "Kein automatischer Vollzugsstopp: Wurde ein konkreter Marsch- oder Einsatzbefehl erlassen, bewirkt ein Antrag keine automatische Vollziehungsaussetzung (§ 3 Abs. 2 Satz 2 KDVG). Eilrechtsschutz (§ 80 Abs. 5 VwGO) ist beim zuständigen Verwaltungsgericht zu beantragen.",
+      processingTime: "Mehrstufiges Verfahren unter Verwertung der Dienstakten und BAFzA-Prüfung",
       documentsRequired: [
-        "Schriftlicher KDV-Antrag auf dem Dienstweg (inkl. Antrag auf Entlassung)",
-        "Tabellarischer Lebenslauf (inkl. militärischem Werdegang)",
-        "Ausführliche Darlegung des Gewissenswandels während der Dienstzeit",
-        "Vorgeschriebene Truppenärztliche & disziplinarische Stellungnahmen (dienstintern)"
+        "Schriftlicher KDV-Antrag an BAPersBw (Kopie an Vorgesetzte/n)",
+        "Militärischer & ziviler tabellarischer Lebenslauf",
+        "Ausführliche Begründung des Gewissenswandels während der Dienstzeit",
+        "Ggf. Dienstzeitbestätigung / Truppenausweis-Kopie"
       ],
       recommendedLetter: "soldaten",
-      badge: "Aktiver Bundeswehrdienst"
+      badge: "Aktiver Dienst"
     },
     reservist: {
       title: "Reservistinnen und Reservisten / Frühere Soldaten",
-      authority: "Bundesamt für das Personalmanagement der Bundeswehr (BAPersBw)",
-      authorityDetail: "Referat KDV, Alte Heerstraße 111, 53757 Sankt Augustin (oder zuständiges Karrierecenter)",
-      submissionWay: "Schriftlich per Einschreiben direkt an das BAPersBw oder das zuständige Karrierecenter der Reserve.",
-      protectionEffect: "Freistellung von künftigen Reserveübungen, Beorderungen und Einberufungen im Spannungs- oder Verteidigungsfall.",
-      processingTime: "Ca. 2 bis 5 Monate",
+      authority: "BAPersBw – Wehrersatzbehörde – (Köln)",
+      authorityAddress: "Militärringstraße 1000, 50737 Köln",
+      decidingAuthority: "Bundesamt für Familie und zivilgesellschaftliche Aufgaben (BAFzA)",
+      submissionWay: "Schriftlich per Post an BAPersBw – Wehrersatzbehörde – (Köln) unter Angabe der Personenkennziffer (PK).",
+      protectionEffectNoBescheid: "Bei Unanfechtbarkeit der Anerkennung entfällt die Heranziehung zu Dienstleistungen mit der Waffe in der Reserve.",
+      protectionEffectHasBescheidJahrgang: "Reserve-Heranziehung: Bei zugestelltem Heranziehungsbescheid gelten für Reservisten die Sonder- und Antragsbestimmungen nach KDVG.",
+      protectionEffectHasBescheidAnderer: "Kein automatischer Vollzugsstopp: Wurde eine Heranziehung bereits zugestellt, hemmt die Antragstellung die Pflicht zum Dienstantritt nicht automatisch (§ 3 Abs. 2 Satz 2 KDVG). Vorläufiger Rechtsschutz (§ 80 Abs. 5 VwGO) ist beim zuständigen Verwaltungsgericht zu beantragen.",
+      processingTime: "Regelprüfverfahren beim BAFzA nach Eingang der Wehrersatzakte",
       documentsRequired: [
         "Schriftlicher KDV-Antrag unter Angabe der Personenkennziffer (PK)",
-        "Tabellarischer Lebenslauf nach dem aktiven Dienst",
-        "Ausführliche Gewissensbegründung über den Wandel der inneren Haltung",
-        "Kopie des Wehrdienstzeit-Nachweises / Entlassungsurkunde (falls griffbereit)"
+        "Tabellarischer Lebenslauf",
+        "Ausführliche Begründung des gewandelten Gewissensentschlusses",
+        "Ggf. Nachweis über den früheren Dienstzeitraum"
       ],
       recommendedLetter: "reservisten",
-      badge: "Reserve & Beorderung"
+      badge: "Reserve"
     }
   };
 
-  const currentConfig = config[status];
+  const currentConfig = config[status] || config.ungediente;
+  const isBescheidUnklar = hasBescheid === 'bitte_auswaehlen';
+  const isBescheidYes = hasBescheid === 'ja';
+  const isBescheidNo = hasBescheid === 'nein';
+  const isFgUnklar = fg13 === 'bitte_auswaehlen';
+
+  let protectionText = "";
+  let protectionBadge = null;
+
+  if (isBescheidUnklar) {
+    protectionText = "Bitte wählen Sie in Schritt 2 aus, ob bereits ein konkreter Bescheid vorliegt, um die rechtliche Schutzwirkung nach § 3 Abs. 2 bzw. § 13 KDVG zu bewerten.";
+    protectionBadge = (
+      <span className="text-slate-600 font-medium flex items-center gap-1">
+        <Info className="w-3.5 h-3.5 shrink-0 text-slate-500" />
+        Angaben unvollständig – Keine individuelle Schutzbestätigung ohne Auswahlen.
+      </span>
+    );
+  } else if (isBescheidNo) {
+    protectionText = currentConfig.protectionEffectNoBescheid;
+    protectionBadge = (
+      <span className="text-emerald-800 font-bold flex items-center gap-1">
+        <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-600" />
+        Gesetzliche Grundregel nach § 3 Abs. 2 Satz 1 KDVG.
+      </span>
+    );
+  } else if (isBescheidYes) {
+    if (isFgUnklar) {
+      protectionText = "Bescheid liegt vor (§ 13 KDVG): Bitte wählen Sie in Schritt 2a aus, ob die gesetzliche Fallgruppe nach § 13 Abs. 1 KDVG (Ungedient & Geburtsdatum vor dem 01.01.2010) vorliegt.";
+      protectionBadge = (
+        <span className="text-amber-800 font-bold flex items-center gap-1">
+          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+          Verfahrenskonstellation unklar (§ 13 Abs. 1 KDVG) – Keine Schutzwirkung bestätigt.
+        </span>
+      );
+    } else if (fg13 === 'schutz_jahrgang') {
+      protectionText = currentConfig.protectionEffectHasBescheidJahrgang;
+      protectionBadge = (
+        <span className="text-emerald-800 font-bold flex items-center gap-1">
+          <CheckCircle2 className="w-3.5 h-3.5 shrink-0 text-emerald-600" />
+          Gesetzliche Fallgruppe nach § 13 Abs. 1 KDVG erfüllt.
+        </span>
+      );
+    } else {
+      protectionText = currentConfig.protectionEffectHasBescheidAnderer;
+      protectionBadge = (
+        <span className="text-amber-800 font-bold flex items-center gap-1">
+          <AlertCircle className="w-3.5 h-3.5 shrink-0" />
+          Keine automatische Schutzwirkung (§ 3 Abs. 2 Satz 2 KDVG). Eilantrag (§ 80 Abs. 5 VwGO) beim Verwaltungsgericht erforderlich.
+        </span>
+      );
+    }
+  }
 
   return (
     <section id="navigator" className="py-16 bg-white border-b border-slate-200 scroll-mt-20">
@@ -84,31 +148,35 @@ export default function StatusNavigator({ onOpenLetter, onOpenChecklist }) {
         <div className="max-w-3xl mx-auto text-center mb-12">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200">
             <Compass className="w-4 h-4 text-emerald-700" />
-            Interaktiver KDV-Status- &amp; Antrags-Navigator
+            Interaktiver KDV-Status- &amp; Verfahrens-Navigator
           </div>
           <h2 className="text-2xl sm:text-4xl font-extrabold text-slate-950 tracking-tight">
-            Ihre individuelle Ausgangslage ermitteln
+            Ihre rechtliche Ausgangslage strukturieren
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-3">
-            Wählen Sie Ihren aktuellen Status und Hintergrund. Der Navigator schlüsselt Zuständigkeiten, Unterlagen, Fristen und Schutzwirkungen für Ihren konkreten Fall auf.
+            Ermitteln Sie die zuständigen Behörden (Antragsempfänger BAPersBw Köln vs. Entscheidungsbehörde BAFzA), benötigte Unterlagen und die rechtlichen Rahmenbedingungen nach § 3 Abs. 2 &amp; § 13 KDVG.
           </p>
         </div>
 
-        {/* Step 1: Status Selection */}
+        {/* Step Inputs */}
         <div className="bg-slate-50 p-6 sm:p-8 rounded-2xl border border-slate-200 shadow-sm mb-8">
           <label className="block text-xs font-extrabold uppercase tracking-wider text-slate-700 mb-4">
-            Schritt 1: Aktueller Status / Ausgangssituation
+            Schritt 1: Aktueller Status / Dienstverhältnis
           </label>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
             {[
-              { id: 'ungediente', label: 'Ungedient / Nach Wehrerfassung', sub: 'Keine bisherige Bundeswehrzeit' },
-              { id: 'musterung', label: 'Musterungsaufforderung', sub: 'Bescheid erhalten / Frist läuft' },
-              { id: 'soldat', label: 'Aktiver Soldat (SaZ / FWDL)', sub: 'In laufender Dienstzeit' },
-              { id: 'reservist', label: 'Reservist / Früherer Soldat', sub: 'Beorderung oder Reserve' },
+              { id: 'ungediente', label: 'Ungedient / Erfasst', sub: 'Bisher kein Wehrdienst geleistet' },
+              { id: 'musterung', label: 'Musterung / Aufforderung', sub: 'Erfassungs- oder Musterungsverfahren' },
+              { id: 'soldat', label: 'Aktiver Soldat (SaZ / FWDL)', sub: 'Laufendes Dienstverhältnis' },
+              { id: 'reservist', label: 'Reservist / Früherer Soldat', sub: 'Beorderung oder Reservestatus' },
             ].map((item) => (
               <button
                 key={item.id}
-                onClick={() => setStatus(item.id)}
+                onClick={() => {
+                  setStatus(item.id);
+                  setHasBescheid('bitte_auswaehlen');
+                  setFg13('bitte_auswaehlen');
+                }}
                 className={`text-left p-4 rounded-xl border transition-all ${
                   status === item.id
                     ? 'bg-slate-900 border-slate-900 text-white shadow-md'
@@ -117,7 +185,7 @@ export default function StatusNavigator({ onOpenLetter, onOpenChecklist }) {
               >
                 <div className="flex items-center justify-between mb-1.5">
                   <span className={`text-xs font-bold px-2 py-0.5 rounded ${status === item.id ? 'bg-emerald-500 text-slate-950' : 'bg-slate-100 text-slate-600'}`}>
-                    {status === item.id ? 'Aktiv' : 'Wählen'}
+                    {status === item.id ? 'Ausgewählt' : 'Wählen'}
                   </span>
                 </div>
                 <div className="font-bold text-sm leading-snug">{item.label}</div>
@@ -130,9 +198,52 @@ export default function StatusNavigator({ onOpenLetter, onOpenChecklist }) {
 
           {/* Sub-Filters */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mt-6 pt-6 border-t border-slate-200">
+            <div className="space-y-3">
+              <div>
+                <label className="block text-xs font-bold text-slate-700 mb-2">
+                  Schritt 2: Liegt bereits ein konkreter Einberufungs- / Heranziehungsbescheid vor?
+                </label>
+                <select
+                  value={hasBescheid}
+                  onChange={(e) => {
+                    setHasBescheid(e.target.value);
+                    if (e.target.value !== 'ja') {
+                      setFg13('bitte_auswaehlen');
+                    }
+                  }}
+                  className="w-full bg-white border border-slate-300 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"
+                >
+                  <option value="bitte_auswaehlen">-- Bitte auswählen: Bescheidstatus --</option>
+                  <option value="nein">Nein – Bisher liegt kein Einberufungsbescheid vor</option>
+                  <option value="ja">Ja – Einberufungs- oder Heranziehungsbescheid liegt vor (§ 13 KDVG beachten)</option>
+                </select>
+              </div>
+
+              {hasBescheid === 'ja' && (
+                <div className="p-3 bg-amber-50 rounded-xl border border-amber-200">
+                  <label className="block text-xs font-bold text-amber-950 mb-1.5">
+                    Schritt 2a: Gesetzliche Fallgruppenprüfung nach § 13 Abs. 1 KDVG:
+                  </label>
+                  <select
+                    value={fg13}
+                    onChange={(e) => setFg13(e.target.value)}
+                    className="w-full bg-white border border-amber-300 rounded-lg px-3 py-2 text-xs font-medium text-slate-900 focus:outline-none focus:ring-2 focus:ring-amber-500"
+                  >
+                    <option value="bitte_auswaehlen">-- Bitte auswählen: Kriterien nach § 13 Abs. 1 KDVG --</option>
+                    <option value="schutz_jahrgang">
+                      Erfüllt: Ungedient &amp; Geburtsdatum vor dem 1. Januar 2010 (§ 13 Abs. 1 KDVG Konstellation)
+                    </option>
+                    <option value="anderer_fall">
+                      Nicht erfüllt / Abweichende Konstellation (Fall außerhalb § 13 Abs. 1 KDVG)
+                    </option>
+                  </select>
+                </div>
+              )}
+            </div>
+
             <div>
               <label className="block text-xs font-bold text-slate-700 mb-2">
-                Schritt 2: Schwerpunkt des Gewissenskonflikts
+                Schritt 3: Schwerpunkt der persönlichen Gewissensbegründung
               </label>
               <select
                 value={conflictType}
@@ -141,23 +252,8 @@ export default function StatusNavigator({ onOpenLetter, onOpenChecklist }) {
               >
                 <option value="ethisch">Ethisch-humanitär (Tötungsverbot, Menschenwürde)</option>
                 <option value="religioes">Religiös / Glaubensbasiert (z. B. christliches Friedensgebot)</option>
-                <option value="dienstwandel">Gewissenswandel durch Dienstalltag / Auslandseinsatzerfahrung</option>
-                <option value="politisch">Völkerrechtlich &amp; Friedensethisch</option>
-              </select>
-            </div>
-
-            <div>
-              <label className="block text-xs font-bold text-slate-700 mb-2">
-                Schritt 3: Dringlichkeit / Zeitrahmen
-              </label>
-              <select
-                value={urgency}
-                onChange={(e) => setUrgency(e.target.value)}
-                className="w-full bg-white border border-slate-300 rounded-lg px-3 py-2.5 text-sm font-medium text-slate-800 focus:outline-none focus:ring-2 focus:ring-emerald-500"
-              >
-                <option value="vorsorglich">Vorsorglich / Zeitnahe Vorbereitung</option>
-                <option value="akut">Akut (Bescheid erhalten, 1-Monats-Frist beachten)</option>
-                <option value="dienstantritt">Bevorstehender Dienstantritt / Einberufung</option>
+                <option value="dienstwandel">Gewissenswandel während des militärischen Dienstes</option>
+                <option value="politisch">Völkerrechtlich &amp; friedensethisch</option>
               </select>
             </div>
           </div>
@@ -172,7 +268,7 @@ export default function StatusNavigator({ onOpenLetter, onOpenChecklist }) {
                   {currentConfig.badge}
                 </span>
                 <span className="text-xs font-semibold text-slate-500">
-                  Ergebnis &amp; Leitfaden
+                  Verfahrensübersicht &amp; Adressen
                 </span>
               </div>
               <h3 className="text-xl sm:text-2xl font-black text-slate-950 mt-1">
@@ -180,57 +276,56 @@ export default function StatusNavigator({ onOpenLetter, onOpenChecklist }) {
               </h3>
             </div>
 
-            <div className="flex items-center gap-2">
+            {/* Internal Action Buttons - NO PARTNERLINK ASTERISKS */}
+            <div className="flex flex-wrap items-center gap-2">
               <button
                 onClick={() => onOpenLetter(currentConfig.recommendedLetter)}
                 className="px-3.5 py-2 text-xs sm:text-sm font-bold bg-white hover:bg-slate-100 text-slate-800 border border-slate-300 rounded-lg transition-colors flex items-center gap-1.5"
               >
                 <FileText className="w-4 h-4 text-emerald-600" />
-                Muster-Anschreiben anzeigen *
+                Muster-Anschreiben anzeigen
               </button>
               <button
                 onClick={onOpenChecklist}
                 className="px-3.5 py-2 text-xs sm:text-sm font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 border border-amber-400 rounded-lg transition-colors flex items-center gap-1.5 shadow-sm"
               >
                 <CheckCircle2 className="w-4 h-4 text-slate-950" />
-                Unterlagen-Checkliste *
+                Unterlagen-Checkliste
               </button>
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 pt-6">
             
-            {/* Box 1: Authority */}
+            {/* Box 1: Antragsempfänger & Entscheider */}
             <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
               <div className="flex items-center gap-2 text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">
                 <Building className="w-4 h-4 text-emerald-600" />
-                Zuständige Behörde / Einreichung
+                Amtlicher Antragsempfänger
               </div>
               <div className="text-sm font-bold text-slate-900">
                 {currentConfig.authority}
               </div>
               <div className="text-xs text-slate-600 mt-1 leading-relaxed">
-                {currentConfig.authorityDetail}
+                {currentConfig.authorityAddress}
               </div>
-              <div className="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-700 font-medium">
-                <strong>Verfahrensweg:</strong> {currentConfig.submissionWay}
+              <div className="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-700">
+                <strong>Entscheidungsbehörde:</strong><br />
+                {currentConfig.decidingAuthority}
               </div>
             </div>
 
-            {/* Box 2: Protection & Timeline */}
+            {/* Box 2: Protection & Legal Rules */}
             <div className="bg-slate-50 p-5 rounded-xl border border-slate-200">
               <div className="flex items-center gap-2 text-xs font-extrabold text-slate-700 uppercase tracking-wider mb-2">
                 <Clock className="w-4 h-4 text-amber-600" />
-                Schutzwirkung &amp; Dauer
+                Schutzwirkung (§ 3 Abs. 2 / § 13 KDVG)
               </div>
-              <div className="text-sm font-bold text-slate-900">
-                {currentConfig.processingTime}
+              <div className="text-xs text-slate-700 leading-relaxed font-medium">
+                {protectionText}
               </div>
-              <div className="text-xs text-slate-600 mt-1 leading-relaxed">
-                {currentConfig.protectionEffect}
-              </div>
-              <div className="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-700 font-medium">
-                <strong>Rechtsgrundlage:</strong> Art. 4 Abs. 3 GG &amp; § 1, 2 KDVG
+              <div className="mt-3 pt-3 border-t border-slate-200 text-[11px]">
+                {protectionBadge}
               </div>
             </div>
 
@@ -248,8 +343,8 @@ export default function StatusNavigator({ onOpenLetter, onOpenChecklist }) {
                   </li>
                 ))}
               </ul>
-              <div className="mt-3 pt-3 border-t border-slate-200 text-xs text-slate-600 italic">
-                Tipp: Niemals Originalurkunden ohne Durchschlag versenden; alles per Einschreiben.
+              <div className="mt-3 pt-3 border-t border-slate-200 text-[11px] text-slate-500 italic">
+                Hinweis: Kopien aller Unterlagen für eigene Akten aufbewahren.
               </div>
             </div>
 
@@ -257,14 +352,24 @@ export default function StatusNavigator({ onOpenLetter, onOpenChecklist }) {
 
           <div className="mt-6 pt-4 border-t border-slate-200 flex flex-wrap items-center justify-between gap-2 text-xs text-slate-500">
             <span>
-              * Modellrechnung / Orientierungshilfe. Die behördliche Entscheidung trifft das Bundesamt für das Personalmanagement der Bundeswehr.
+              Unverbindliche Orientierungshilfe zur Antragstellung bei der Wehrersatzbehörde (BAPersBw Köln) und Entscheidung durch das BAFzA.
             </span>
-            <a
-              href="#beratungsstellen"
-              className="text-emerald-700 hover:text-emerald-800 font-bold inline-flex items-center gap-1"
-            >
-              Unabhängige Beratungsstelle vor Ort finden <ArrowRight className="w-3.5 h-3.5" />
-            </a>
+            {onOpenBeratungsstellen ? (
+              <button
+                type="button"
+                onClick={onOpenBeratungsstellen}
+                className="text-emerald-700 hover:text-emerald-800 font-bold inline-flex items-center gap-1"
+              >
+                Beratungsstellen anzeigen <ArrowRight className="w-3.5 h-3.5" />
+              </button>
+            ) : (
+              <a
+                href="#beratungsstellen"
+                className="text-emerald-700 hover:text-emerald-800 font-bold inline-flex items-center gap-1"
+              >
+                Beratungsstellen anzeigen <ArrowRight className="w-3.5 h-3.5" />
+              </a>
+            )}
           </div>
 
         </div>

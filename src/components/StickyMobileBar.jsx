@@ -34,7 +34,7 @@ export default function StickyMobileBar() {
           className="flex-1 py-2.5 px-3 rounded-xl bg-amber-400 hover:bg-amber-300 text-slate-950 font-extrabold text-xs shadow-sm flex items-center justify-center gap-1.5 border border-amber-400"
         >
           <Compass className="w-4 h-4 text-slate-950" />
-          <span>Status prüfen *</span>
+          <span>Antrags-Navigator</span>
         </button>
 
         <button
@@ -42,11 +42,8 @@ export default function StickyMobileBar() {
           className="flex-1 py-2.5 px-3 rounded-xl bg-slate-900 hover:bg-slate-800 text-white font-bold text-xs shadow-sm flex items-center justify-center gap-1.5"
         >
           <Users className="w-4 h-4 text-emerald-400" />
-          <span>Beratung finden *</span>
+          <span>Beratung finden</span>
         </button>
-      </div>
-      <div className="text-[10px] text-center text-slate-500 mt-1">
-        * Unabhängiger KDV-Leitfaden Art. 4 Abs. 3 GG
       </div>
     </div>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Users, Search, ExternalLink, ShieldCheck, Check, Sparkles, Phone, Mail, HelpCircle } from 'lucide-react';
+import { Users, Search, ExternalLink, ShieldCheck, Check, HelpCircle } from 'lucide-react';
 import { consultingCenters } from '../data/directoryData';
 
 export default function Directory() {
@@ -7,11 +7,11 @@ export default function Directory() {
   const [searchTerm, setSearchTerm] = useState('');
 
   const categories = [
-    { id: 'all', label: 'Alle Beratungsstellen' },
+    { id: 'all', label: 'Alle Angebote' },
     { id: 'ungediente', label: 'Für Ungediente' },
     { id: 'soldaten', label: 'Für aktive Soldat/innen' },
     { id: 'reservisten', label: 'Für Reservisten' },
-    { id: 'anwalt', label: 'Fachanwälte (Rechtsbeistand)' }
+    { id: 'anwalt', label: 'Anwaltsuche (Rechtsberatung)' }
   ];
 
   const filtered = consultingCenters.filter((center) => {
@@ -31,13 +31,13 @@ export default function Directory() {
         <div className="max-w-3xl mx-auto text-center mb-10">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 text-emerald-800 text-xs font-bold uppercase tracking-wider mb-3 border border-emerald-200">
             <Users className="w-4 h-4 text-emerald-700" />
-            Unabhängiges Beratungsstellen-Verzeichnis
+            Beratungsstellen &amp; Anwaltsverzeichnis
           </div>
           <h2 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight">
-            Geprüfte Anlaufstellen &amp; Fachberater finden
+            Unabhängige Angebote &amp; Rechtsberatung
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-3">
-            Gemeinnützige Beratungsstellen, kirchliche Fachdienste und spezialisierte Vertrauensanwälte. Unabhängig von Bundeswehr und Behörden.
+            Gemeinnützige Beratungsstellen, kirchliche Fachdienste und das Anwaltsverzeichnis des Deutschen Anwaltvereins (DAV). Unabhängig von Bundeswehr und Behörden.
           </p>
         </div>
 
@@ -50,7 +50,7 @@ export default function Directory() {
               <Search className="w-4 h-4 text-slate-400 absolute left-3.5 top-1/2 -translate-y-1/2" />
               <input
                 type="text"
-                placeholder="Organisation oder Stichwort suchen..."
+                placeholder="Angebot suchen..."
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-sm text-slate-900 placeholder:text-slate-400 focus:outline-none focus:ring-2 focus:ring-emerald-500"
@@ -78,10 +78,10 @@ export default function Directory() {
 
           <div className="mt-3 text-xs text-slate-500 flex justify-between items-center">
             <span>
-              Zeige <strong>{filtered.length}</strong> von {consultingCenters.length} Anlaufstellen
+              Zeige <strong>{filtered.length}</strong> von {consultingCenters.length} Angeboten
             </span>
             <span className="italic">
-              * Partnerlink / Externe Fachstelle
+              Externe Verweise öffnen in neuem Fenster
             </span>
           </div>
         </div>
@@ -150,7 +150,7 @@ export default function Directory() {
         <div className="mt-10 p-5 rounded-xl bg-slate-50 border border-slate-200 text-xs text-slate-600 flex items-start gap-3">
           <HelpCircle className="w-5 h-5 text-slate-400 shrink-0 mt-0.5" />
           <div>
-            <strong>Hinweis zu Kosten &amp; Rechtsberatung:</strong> Die Erstberatung durch gemeinnützige Organisationen wie DFG-VK, EAK und pax christi ist grundsätzlich kostenlos (Spenden sind willkommen). Beauftragen Sie eine private Rechtsanwaltskanzlei, fallen gesetzliche Vergütungen nach dem Rechtsanwaltsvergütungsgesetz (RVG) oder individuelle Honorarvereinbarungen an.
+            <strong>Hinweis zu Kosten &amp; Rechtsberatung:</strong> Die Information und Beratung durch gemeinnützige Organisationen wie DFG-VK, EAK, kokon und pax christi ist in der Regel kostenfrei. Für eine individuelle juristische Vertretung durch freie Rechtsanwälte fallen gesetzliche Vergütungen nach dem Rechtsanwaltsvergütungsgesetz (RVG) oder Honorarvereinbarungen an.
           </div>
         </div>
 

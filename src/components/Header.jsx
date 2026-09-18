@@ -75,7 +75,7 @@ export default function Header({ onOpenLegal }) {
               className="px-4 py-2.5 text-sm font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl shadow-sm border border-amber-400 transition-all hover:shadow flex items-center gap-2"
             >
               <Compass className="w-4 h-4 text-slate-950" />
-              <span>Antrags-Navigator *</span>
+              <span>Antrags-Navigator</span>
             </button>
           </div>
 
@@ -129,7 +129,7 @@ export default function Header({ onOpenLegal }) {
               className="w-full text-center py-3 text-sm font-extrabold bg-amber-400 hover:bg-amber-300 text-slate-950 rounded-xl shadow-sm flex items-center justify-center gap-2"
             >
               <Compass className="w-4 h-4 text-slate-950" />
-              <span>Antrags-Navigator starten *</span>
+              <span>Antrags-Navigator starten</span>
             </button>
             <button
               onClick={() => { setMobileMenuOpen(false); onOpenLegal('impressum'); }}

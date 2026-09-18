@@ -1,5 +1,5 @@
 import React from 'react';
-import { ShieldCheck, Compass, FileText, CheckCircle2, AlertTriangle, ArrowRight } from 'lucide-react';
+import { ShieldCheck, Compass, FileText, CheckCircle2, ArrowRight } from 'lucide-react';
 
 export default function Hero() {
   const scrollTo = (id) => {
@@ -34,7 +34,7 @@ export default function Hero() {
             Orientierungshilfe und strukturierter Leitfaden für Ungediente, aktive Soldatinnen und Soldaten sowie Reservisten. Von den verfassungsrechtlichen Voraussetzungen nach Art. 4 Abs. 3 GG bis zum vollständigen Antragsverfahren.
           </p>
 
-          {/* CTAs */}
+          {/* CTAs - Clean internal action buttons WITHOUT partnerlink asterisks */}
           <div className="flex flex-col sm:flex-row items-center justify-center gap-3.5 mb-10">
             <button
               onClick={() => scrollTo('navigator')}
@@ -42,7 +42,6 @@ export default function Hero() {
             >
               <Compass className="w-5 h-5 text-slate-950" />
               <span>Antrags-Navigator starten</span>
-              <span className="text-xs font-semibold text-slate-800">*</span>
               <ArrowRight className="w-4 h-4 text-slate-950 group-hover:translate-x-0.5 transition-transform" />
             </button>
 
@@ -52,12 +51,7 @@ export default function Hero() {
             >
               <FileText className="w-5 h-5 text-emerald-600" />
               <span>Leitfaden Gewissensbegründung</span>
-              <span className="text-xs text-slate-500">*</span>
             </button>
-          </div>
-
-          <div className="text-xs text-slate-500 mb-8">
-            * Unverbindliche Orientierungshilfe. Alle behördlichen Verfahren beim BAPersBw sind gebührenfrei.
           </div>
 
           {/* Core Fact Pills */}
@@ -77,8 +71,8 @@ export default function Hero() {
                 <CheckCircle2 className="w-5 h-5 text-emerald-700" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-900">0,00 € Antragsgebühr</h4>
-                <p className="text-xs text-slate-600 mt-0.5">Das amtliche Prüfverfahren beim BAPersBw ist gesetzlich kostenfrei</p>
+                <h4 className="text-sm font-bold text-slate-900">0,00 € Gebühren</h4>
+                <p className="text-xs text-slate-600 mt-0.5">Das behördliche Prüfverfahren bei BAPersBw &amp; BAFzA ist gebührenfrei</p>
               </div>
             </div>
 
@@ -87,8 +81,8 @@ export default function Hero() {
                 <ShieldCheck className="w-5 h-5 text-amber-700" />
               </div>
               <div>
-                <h4 className="text-sm font-bold text-slate-900">Sofortige Schutzwirkung</h4>
-                <p className="text-xs text-slate-600 mt-0.5">Schonfrist vor Waffendienst ab förmlichem Antragseingang</p>
+                <h4 className="text-sm font-bold text-slate-900">Regelung § 3 / § 13 KDVG</h4>
+                <p className="text-xs text-slate-600 mt-0.5">Schutz vor Waffendienst nach gesetzlichen Kriterien des KDVG</p>
               </div>
             </div>
           </div>
@@ -116,10 +110,10 @@ export default function Hero() {
         <div className="bg-white border-l-4 border-amber-500 p-5 sm:p-6 rounded-r-xl border border-slate-200 shadow-sm text-left">
           <div className="flex items-center gap-2 mb-2 text-xs font-extrabold uppercase tracking-wider text-amber-950">
             <ShieldCheck className="w-4 h-4 text-amber-600" />
-            <span>Definition &amp; Rechtsgrundlage (Position-0)</span>
+            <span>Definition &amp; Rechtsgrundlage</span>
           </div>
           <p className="text-xs sm:text-sm text-slate-800 leading-relaxed font-medium">
-            Die <strong className="text-slate-950 font-bold">Kriegsdienstverweigerung (KDV)</strong> ist ein in <strong className="text-slate-950 font-bold">Art. 4 Abs. 3 Grundgesetz (GG)</strong> verankertes Grundrecht. Jeder Staatsbürger kann den Kriegsdienst mit der Waffe aus Gewissensgründen verweigern. Das Verfahren regelt das Kriegsdienstverweigerungsgesetz (KDVG); zuständige Bundesoberbehörde für die Anerkennung ist das Bundesamt für das Personalmanagement der Bundeswehr (BAPersBw). Erforderlich sind ein schriftlicher Antrag, ein tabellarischer Lebenslauf und eine persönliche Gewissensbegründung.
+            Die <strong className="text-slate-950 font-bold">Kriegsdienstverweigerung (KDV)</strong> ist ein in <strong className="text-slate-950 font-bold">Art. 4 Abs. 3 Grundgesetz (GG)</strong> verankertes Grundrecht. Jeder Staatsbürger kann den Kriegsdienst mit der Waffe aus Gewissensgründen verweigern. Das Verfahren regelt das Kriegsdienstverweigerungsgesetz (KDVG). Antragsempfänger ist die Wehrersatzbehörde (BAPersBw Köln); die inhaltliche Entscheidung trifft das Bundesamt für Familie und zivilgesellschaftliche Aufgaben (BAFzA). Erforderlich sind ein schriftlicher Antrag, ein tabellarischer Lebenslauf und eine persönliche Gewissensbegründung.
           </p>
         </div>
       </div>

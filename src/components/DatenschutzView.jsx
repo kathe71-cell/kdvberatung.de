@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, ShieldCheck, Lock, EyeOff } from 'lucide-react';
+import { ArrowLeft, ShieldCheck, Lock, Info } from 'lucide-react';
 
 export default function DatenschutzView({ onBack }) {
   return (
@@ -17,7 +17,7 @@ export default function DatenschutzView({ onBack }) {
         <div className="border-b border-slate-200 pb-6 mb-8">
           <div className="inline-flex items-center gap-2 px-3 py-1 rounded-md bg-emerald-50 text-emerald-900 text-xs font-bold uppercase tracking-wider mb-2 border border-emerald-200">
             <ShieldCheck className="w-3.5 h-3.5 text-emerald-700" />
-            Datenschutz &amp; Privatsphäre
+            Datenschutz &amp; Transparenz
           </div>
           <h1 className="text-2xl sm:text-4xl font-black text-slate-950 tracking-tight">
             Datenschutzerklärung
@@ -29,14 +29,14 @@ export default function DatenschutzView({ onBack }) {
 
         <div className="space-y-8 text-xs sm:text-sm text-slate-700 leading-relaxed">
           
-          {/* Summary Box */}
-          <div className="bg-emerald-50/70 p-5 rounded-xl border border-emerald-200 text-emerald-950">
-            <h3 className="font-bold text-base mb-2 flex items-center gap-2">
-              <EyeOff className="w-5 h-5 text-emerald-700" />
-              Datensparsame Architektur (Zero-Tracking &amp; Zero-CDN)
+          {/* Transparent Overview Box */}
+          <div className="bg-slate-50 p-5 rounded-xl border border-slate-200 text-slate-800">
+            <h3 className="font-bold text-base mb-2 flex items-center gap-2 text-slate-950">
+              <Info className="w-5 h-5 text-emerald-700" />
+              Übersicht zur Datenverarbeitung
             </h3>
             <p className="text-xs sm:text-sm">
-              Diese Website setzt <strong>weder Tracking-Cookies, Werbenetzwerke noch externe CDNs (wie Google Fonts)</strong> ein. Die Typografie basiert ausschließlich auf den vorinstallierten System-Schriftarten Ihres Endgeräts. Es werden keine personenbezogenen Daten an Dritte oder in Drittstaaten übertragen.
+              Auf dieser Website kommen modernes Cloud-Hosting (Vercel), aggregierte Reichweiten- und Performance-Messung (Vercel Analytics &amp; Speed Insights) sowie Online-Werbeeinbindungen (Google AdSense) zum Einsatz. Nachfolgend informieren wir Sie transparent über Art, Umfang und Zweck der Datenverarbeitung.
             </p>
           </div>
 
@@ -45,49 +45,58 @@ export default function DatenschutzView({ onBack }) {
             <h2 className="text-base font-bold text-slate-950 mb-2">
               1. Name und Kontaktdaten des Verantwortlichen
             </h2>
-            <p>
-              Verantwortlicher im Sinne der DSGVO und sonstiger nationaler Datenschutzgesetze ist:
+            <p className="mb-2">
+              Verantwortlicher im Sinne der DSGVO ist:
             </p>
-            <div className="mt-2 p-4 bg-slate-50 rounded-lg border border-slate-200 text-slate-700">Verantwortlicher im Sinne der DSGVO ist der Betreiber dieser Website. Vollständige Anschrift und Kontaktdaten entnehmen Sie bitte dem Impressum.</div>
+            <div className="p-4 bg-slate-50 rounded-lg border border-slate-200 font-medium text-slate-900">
+              Jens Kathe<br />
+              Hansastraße 6<br />
+              34119 Kassel<br />
+              Deutschland<br />
+              E-Mail: jens@kathe.org<br />
+              Telefon: +49 178 6652623
+            </div>
           </section>
 
-          {/* 2. Erhebung beim Aufruf */}
+          {/* 2. Webhosting über Vercel */}
           <section>
             <h2 className="text-base font-bold text-slate-950 mb-2">
-              2. Bereitstellung der Website und Server-Logfiles
+              2. Webhosting (Vercel Inc.)
             </h2>
             <p className="mb-2">
-              Beim reinen informatorischen Aufruf unserer Website erheben wir nur diejenigen Daten, die Ihr Browser an unseren Hosting-Provider (Vercel Inc.) übermittelt. Dies sind technisch notwendige Daten, um Ihnen unsere Website stabil und sicher anzuzeigen:
+              Wir hosten unsere Website bei der Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA. Beim Abruf von Seiten werden automatisch technisch erforderliche Server-Logfiles verarbeitet (z. B. IP-Adresse, Datum/Uhrzeit des Zugriffs, abgerufene Seite, Browser-Typ und Betriebssystem).
             </p>
-            <ul className="list-disc pl-5 space-y-1 text-slate-600">
-              <li>IP-Adresse des anfragenden Rechners</li>
-              <li>Datum und Uhrzeit des Zugriffs</li>
-              <li>Name und URL der abgerufenen Datei</li>
-              <li>Website, von der aus der Zugriff erfolgt (Referrer-URL)</li>
-              <li>Verwendeter Browser und Betriebssystem</li>
-            </ul>
-            <p className="mt-2">
-              Rechtsgrundlage hierfür ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an der technischen Bereitstellung und IT-Sicherheit). Die Logfiles werden nach Ablauf gesetzlicher Fristen automatisch gelöscht.
+            <p>
+              Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an einer sicheren und stabilen Auslieferung). Die Auftragsverarbeitung mit Vercel erfolgt auf Grundlage von EU-Standardvertragsklauseln.
             </p>
           </section>
 
-          {/* 3. Hosting über Vercel */}
+          {/* 3. Vercel Web Analytics & Speed Insights */}
           <section>
             <h2 className="text-base font-bold text-slate-950 mb-2">
-              3. Webhosting
+              3. Reichweiten- &amp; Performance-Messung (Vercel Analytics &amp; Speed Insights)
             </h2>
+            <p className="mb-2">
+              Wir nutzen Vercel Analytics sowie Vercel Speed Insights zur aggregierten Analyse von Ladezeiten, Performance und Seitenaufrufen. Diese Dienste dienen der technischen Optimierung und der benutzerfreundlichen Bereitstellung der Inhalte.
+            </p>
             <p>
-              Wir hosten diese Website bei dem Cloud-Anbieter Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA. Zur Gewährleistung eines datenschutzkonformen Betriebs haben wir einen Auftragsverarbeitungsvertrag (AVV / Data Processing Addendum) auf Basis der EU-Standardvertragsklauseln abgeschlossen.
+              Die Erfassung erfolgt in anonymisierter bzw. aggregierter Form ohne Erstellung personenbeziehbarer Nutzerprofile. Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong>.
             </p>
           </section>
 
-          {/* 4. Keine Cookies */}
+          {/* 4. Google AdSense */}
           <section>
             <h2 className="text-base font-bold text-slate-950 mb-2">
-              4. Cookies und Analyse-Tools
+              4. Werbeeinbindung (Google AdSense)
             </h2>
+            <p className="mb-2">
+              Diese Website bindet Werbeanzeigen von Google AdSense (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) ein. Google AdSense verwendet Technologien wie Cookies oder Web Beacons, um Anzeigen bereitzustellen und deren Wirksamkeit zu messen.
+            </p>
+            <p className="mb-2">
+              Dabei können Daten wie Ihre IP-Adresse, Geräte-Identifikatoren sowie Informationen zum Aufruf von Werbemitteln von Google verarbeitet werden. Bei der Darstellung von Anzeigen werden die Einstellungen der Einwilligungssteuerung (Consent Management / Cookie-Banner) beachtet.
+            </p>
             <p>
-              Diese Website verwendet <strong>keine</strong> Marketing-, Tracking- oder Profiling-Cookies. Es werden keine Nutzerprofile erstellt. Sämtliche interaktiven Rechner und Checklisten laufen clientseitig in Ihrem lokalen Webbrowser ab; Ihre Eingaben werden nicht auf unserem Server gespeichert.
+              Rechtsgrundlage für die Einbindung von Cookies und personalisierter Werbung ist Ihre Einwilligung nach <strong>Art. 6 Abs. 1 lit. a DSGVO</strong> / § 25 TDDDG. Sie können Ihre Einstellungen jederzeit anpassen oder über die Deaktivierungsseite von Google für Werbeeinstellungen widersprechen.
             </p>
           </section>
 
@@ -97,15 +106,16 @@ export default function DatenschutzView({ onBack }) {
               5. Ihre Rechte als betroffene Person
             </h2>
             <p className="mb-2">
-              Sie haben nach der DSGVO jederzeit das Recht auf:
+              Sie haben gemäß DSGVO folgende Rechte bezüglich Ihrer personenbezogenen Daten:
             </p>
             <ul className="list-disc pl-5 space-y-1 text-slate-600">
-              <li>Auskunft über Ihre von uns verarbeiteten Daten (Art. 15 DSGVO)</li>
-              <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
-              <li>Löschung Ihrer gespeicherten Daten (Art. 17 DSGVO)</li>
-              <li>Einschränkung der Datenverarbeitung (Art. 18 DSGVO)</li>
-              <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
-              <li>Beschwerderecht bei einer zuständigen Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO)</li>
+              <li>Auskunftsrecht (Art. 15 DSGVO)</li>
+              <li>Recht auf Berichtigung (Art. 16 DSGVO)</li>
+              <li>Recht auf Löschung (Art. 17 DSGVO)</li>
+              <li>Recht auf Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
+              <li>Recht auf Datenübertragbarkeit (Art. 20 DSGVO)</li>
+              <li>Widerspruchsrecht (Art. 21 DSGVO)</li>
+              <li>Beschwerderecht bei einer Datenschutz-Aufsichtsbehörde (Art. 77 DSGVO)</li>
             </ul>
           </section>
 

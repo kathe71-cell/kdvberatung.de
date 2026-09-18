@@ -9,10 +9,10 @@ export default function ConscienceGuide({ onOpenChecklist }) {
       number: "01",
       title: "Entstehung der Wertehaltung",
       subtitle: "Biografischer Ursprung & Prägung",
-      content: "Das Prüfamt (BAPersBw) will verstehen, woher Ihre ethische oder religiöse Haltung stammt. Beschreiben Sie Ihre Erziehung, das familiäre Umfeld, Vorbilder, Schul- oder Gemeindeerfahrungen und den Stellenwert von Gewaltfreiheit in Ihrem Aufwachsen.",
+      content: "Die Entscheidungsbehörde (BAFzA) prüft, wie sich Ihre persönliche ethische oder religiöse Haltung entwickelt hat. Beschreiben Sie Ihre Erziehung, das familiäre Umfeld, Vorbilder, Schul- oder Gemeindeerfahrungen und den Stellenwert von Gewaltfreiheit in Ihrem Werdegang.",
       keyQuestions: [
         "Welche Werte wurden mir in Familie, Schule oder Glaubensgemeinschaft vermittelt?",
-        "Gab es frühe Berührungen mit Gewalt oder Konflikten und wie habe ich darauf reagiert?",
+        "Gab es Berührungen mit Gewalt oder Konflikten und wie habe ich darauf reagiert?",
         "Welche philosophischen oder religiösen Grundsätze leiten mein Handeln?"
       ]
     },
@@ -20,33 +20,33 @@ export default function ConscienceGuide({ onOpenChecklist }) {
       number: "02",
       title: "Schlüsselerlebnisse & Reflexion",
       subtitle: "Der Wendepunkt zum Gewissensentschluss",
-      content: "Eine Gewissensentscheidung fällt selten über Nacht. Das Bundesverfassungsgericht verlangt eine nachvollziehbare Entwicklung. Schildern Sie konkrete Anlässe, Bücher, Filme, Reisen, Begegnungen oder – bei Soldaten – Erlebnisse im militärischen Alltag, die Ihren Gewissenskonflikt ausgelöst haben.",
+      content: "Eine Gewissensentscheidung erfordert eine nachvollziehbare innere Entwicklung. Schildern Sie konkrete Anlässe, Begegnungen, Lektüren oder Erlebnisse im Alltag bzw. Dienst, die Ihren Gewissenskonflikt ausgelöst oder verfestigt haben.",
       keyQuestions: [
-        "Welches konkrete Ereignis oder Gespräch hat mich zutiefst aufgerüttelt?",
-        "Wann wurde mir bewusst, dass ich im Ernstfall keinen Menschen erschießen könnte?",
-        "Welche inneren Zweifel und Kämpfe habe ich durchlebt?"
+        "Welches konkrete Ereignis oder Gespräch hat meine Grundhaltung aufgerüttelt?",
+        "Wann wurde mir bewusst, dass ich den Waffeneinsatz nicht mit meinem Gewissen vereinbaren kann?",
+        "Welche inneren Zweifel und Reflexionen habe ich durchlebt?"
       ]
     },
     {
       number: "03",
       title: "Die unbedingte Absage an das Töten",
       subtitle: "Der Kern von Artikel 4 Abs. 3 GG",
-      content: "Hier formulieren Sie das unauflösliche Gebot Ihres Gewissens: Die Weigerung, einen Menschen im Kriegsdienst mit der Waffe zu töten oder daran mitzuwirken. Machen Sie deutlich, dass dies keine Zweckmäßigkeitserwägung ist, sondern eine existenzielle Entscheidung Ihres Gewissens.",
+      content: "Hier formulieren Sie die Weigerung, einen Menschen im Kriegsdienst mit der Waffe zu töten oder an Tötungshandlungen mitzuwirken. Machen Sie deutlich, dass dies keine politische Erwägung ist, sondern eine verbindliche Gewissensentscheidung.",
       keyQuestions: [
-        "Warum ist das Töten eines Menschen für mein inneres Gewissen absolut unvereinbar?",
+        "Warum ist das Töten eines Menschen für mein inneres Gewissen unvereinbar?",
         "Wie stehe ich zum Gehorsam gegenüber Befehlen zum Waffeneinsatz?",
-        "Warum kann ich auch in einer Notwehr- oder Verteidigungssituation keine Kriegswaffe führen?"
+        "Warum gilt meine Verweigerung ausnahmslos und unabhängig von militärischen Bündnissen?"
       ]
     },
     {
       number: "04",
       title: "Ernsthaftigkeit & Unabdingbarkeit",
-      subtitle: "Glaubwürdigkeit auch in Extremsituationen",
-      content: "Die Gewissensentscheidung muss von solchem Gewicht sein, dass eine Missachtung zu einer seelischen Notlage führen würde. Legen Sie dar, dass Sie bereit sind, auch persönliche Konsequenzen (z. B. zivilen Ersatzdienst, gesellschaftliche Skepsis, berufliche Neuorientierung) auf sich zu nehmen.",
+      subtitle: "Persönliche Glaubwürdigkeit",
+      content: "Die Gewissensentscheidung muss von solchem Gewicht sein, dass eine Missachtung zu einer inneren Notlage führen würde. Legen Sie dar, dass Sie Ihre Überzeugung ernsthaft und dauerhaft vertreten.",
       keyQuestions: [
         "Welche Konsequenzen nehme ich für meine Überzeugung in Kauf?",
-        "Wie verhalte ich mich in meinem alltäglichen zivilen Leben bei Streit und Konflikten?",
-        "Ist meine Entscheidung endgültig und nicht mehr verhandelbar?"
+        "Wie verhalte ich mich im zivilen Alltag bei Konflikten und Meinungsverschiedenheiten?",
+        "Ist meine Entscheidung endgültig und nicht an äußere Bedingungen geknüpft?"
       ]
     }
   ];
@@ -65,7 +65,7 @@ export default function ConscienceGuide({ onOpenChecklist }) {
             Die 4 Säulen einer tragfähigen Gewissensbegründung
           </h2>
           <p className="text-sm sm:text-base text-slate-600 mt-3">
-            Die persönliche schriftliche Begründung ist das Herzstück Ihres Antrags. Das BAPersBw prüft, ob eine echte Gewissensentscheidung im Sinne von Art. 4 Abs. 3 GG vorliegt.
+            Die persönliche schriftliche Begründung ist der zentrale Bestandteil Ihres Antrags. Das BAFzA prüft, ob eine echte Gewissensentscheidung im Sinne von Art. 4 Abs. 3 GG vorliegt.
           </p>
         </div>
 
@@ -108,7 +108,7 @@ export default function ConscienceGuide({ onOpenChecklist }) {
                 Säule {pillars[activePillar].number} im Detail
               </span>
               <span className="text-xs text-slate-500 font-medium">
-                Kriterium nach BVerfGE 12, 45 ff.
+                Orientiert an BVerfG-Kriterien
               </span>
             </div>
 
@@ -137,7 +137,7 @@ export default function ConscienceGuide({ onOpenChecklist }) {
 
             <div className="mt-6 pt-4 border-t border-slate-200 flex items-center justify-between">
               <span className="text-xs text-slate-500">
-                Umfang: typischerweise 2 bis 5 DIN-A4-Seiten
+                Empfehlung: Eigene Worte in ausführlicher Form verfassen
               </span>
               <button
                 onClick={onOpenChecklist}
@@ -154,10 +154,10 @@ export default function ConscienceGuide({ onOpenChecklist }) {
         <div className="bg-white rounded-2xl border border-slate-200 p-6 sm:p-8 shadow-sm">
           <div className="text-center max-w-2xl mx-auto mb-8">
             <h3 className="text-xl sm:text-2xl font-black text-slate-950">
-              Prüfpraxis: Was überzeugt – und was zur Ablehnung führt
+              Prüfkriterien: Was beachtet werden sollte
             </h3>
             <p className="text-xs sm:text-sm text-slate-600 mt-1">
-              Erfahrungen aus Tausenden KDV-Verfahren beim Bundesamt für das Personalmanagement der Bundeswehr.
+              Hinweise aus der verfassungsgerichtlichen Rechtsprechung und behördlichen Anforderungen.
             </p>
           </div>
 
@@ -167,24 +167,24 @@ export default function ConscienceGuide({ onOpenChecklist }) {
             <div className="bg-emerald-50/60 p-6 rounded-xl border border-emerald-200">
               <div className="flex items-center gap-2 text-sm font-extrabold text-emerald-900 mb-4">
                 <CheckCircle2 className="w-5 h-5 text-emerald-700" />
-                <span>Unverzichtbar (Das überzeugt die Prüfer)</span>
+                <span>Empfohlen (Freie persönliche Ausarbeitung)</span>
               </div>
               <ul className="space-y-3 text-xs sm:text-sm text-slate-800">
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-600 font-bold">✓</span>
-                  <span><strong>Eigene, authentische Sprache:</strong> Schreiben Sie in Ihrem eigenen Sprachstil. Ehrliche Zweifel wirken glaubwürdiger als geschliffene Fremdtexte.</span>
+                  <span><strong>Eigene, authentische Sprache:</strong> Schreiben Sie in Ihrem persönlichen Sprachstil. Glaubwürdigkeit entsteht durch eigene Gedanken.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-600 font-bold">✓</span>
-                  <span><strong>Konkrete Lebenssituationen:</strong> Veranschaulichen Sie Ihre Haltung an echten Situationen aus Ihrem bisherigen Leben oder Dienstalltag.</span>
+                  <span><strong>Konkrete Lebensbezüge:</strong> Veranschaulichen Sie Ihre Haltung an Beispielen aus Ihrem bisherigen Werdegang.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-600 font-bold">✓</span>
-                  <span><strong>Unbedingtheit:</strong> Stellen Sie klar, dass Ihre Weigerung zum Waffendienst ausnahmslos gilt – unabhängig von Nation, Gegner oder Bündnis.</span>
+                  <span><strong>Unbedingtheit:</strong> Das Tötungsverbot muss uneingeschränkt und ausnahmslos gelten.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-emerald-600 font-bold">✓</span>
-                  <span><strong>Widerspruchsfreiheit zum Lebenslauf:</strong> Hobbys, Interessen und Angaben im Lebenslauf müssen mit der friedfertigen Haltung harmonieren.</span>
+                  <span><strong>Widerspruchsfreiheit:</strong> Angaben im Lebenslauf und in der Begründung sollten harmonieren.</span>
                 </li>
               </ul>
             </div>
@@ -193,24 +193,24 @@ export default function ConscienceGuide({ onOpenChecklist }) {
             <div className="bg-amber-50/60 p-6 rounded-xl border border-amber-200">
               <div className="flex items-center gap-2 text-sm font-extrabold text-amber-950 mb-4">
                 <XCircle className="w-5 h-5 text-amber-700" />
-                <span>Dringend vermeiden (Führt häufig zur Ablehnung)</span>
+                <span>Vermeiden (Kann zu Verzögerungen / Rückfragen führen)</span>
               </div>
               <ul className="space-y-3 text-xs sm:text-sm text-slate-800">
                 <li className="flex items-start gap-2">
                   <span className="text-amber-700 font-bold">✕</span>
-                  <span><strong>Kopierte Muster &amp; KI-Generatoren:</strong> Das BAPersBw erkennt Textbausteine und ChatGPT-Standardtexte sofort. Folge: Zweifel an der Ernsthaftigkeit.</span>
+                  <span><strong>Kopierte Standardtexte:</strong> Vorgefertigte Internetmuster oder KI-Standardformulierungen lassen keine individuelle Gewissensentscheidung erkennen.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-700 font-bold">✕</span>
-                  <span><strong>Rein politische Statements:</strong> Kritik an der NATO, Rüstungsausgaben oder Parteipolitik begründet allein keine verfassungsrechtliche Gewissensentscheidung.</span>
+                  <span><strong>Ausschließlich politische Argumente:</strong> Rein partei- oder rüstungspolitische Statements begründen alleine keine Gewissensentscheidung im Sinne von Art. 4 Abs. 3 GG.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-700 font-bold">✕</span>
-                  <span><strong>Bedingte Verweigerung:</strong> Aussagen wie „Ich würde nur mein Heimatdorf verteidigen“ führen direkt zur Ablehnung (sog. selektive Verweigerung).</span>
+                  <span><strong>Selektive Verweigerung:</strong> Aussagen, die den Waffeneinsatz nur in bestimmten Fällen ablehnen, genügen den gesetzlichen Kriterien nicht.</span>
                 </li>
                 <li className="flex items-start gap-2">
                   <span className="text-amber-700 font-bold">✕</span>
-                  <span><strong>Zweckmäßigkeitsgründe:</strong> Verweise auf Studienplätze, Berufs- oder Urlaubsplanung haben im KDV-Antrag keinen Platz.</span>
+                  <span><strong>Zweckmäßigkeitsgründe:</strong> Berufs-, Studien- oder Ausbildungspläne stellen keine Gewissensgründe dar.</span>
                 </li>
               </ul>
             </div>
@@ -221,9 +221,9 @@ export default function ConscienceGuide({ onOpenChecklist }) {
           <div className="mt-6 bg-slate-900 text-slate-200 p-4 sm:p-5 rounded-xl flex items-start gap-3 text-xs sm:text-sm">
             <AlertTriangle className="w-5 h-5 text-amber-400 shrink-0 mt-0.5" />
             <div>
-              <strong className="text-amber-300 font-bold">Wichtiger Hinweis zu KI-generierten Texten:</strong>
+              <strong className="text-amber-300 font-bold">Hinweis zu vorgefertigten Texten:</strong>
               <p className="mt-1 text-slate-300">
-                Verwenden Sie KI-Tools höchstens zur Gliederung oder Korrektur von Rechtschreibfehlern. Das BAPersBw fordert bei Verdacht auf Fremd- oder KI-Texte häufig eine persönliche, mündliche Anhörung an, in der Sie Ihre Begründung im Detail verteidigen müssen.
+                Verwenden Sie keine fremden Textvorlagen oder KI-generierte Standardtexte als eigene Begründung. Die Behörde (BAFzA) prüft die persönliche Glaubwürdigkeit; fremde Formulierungen können zu Rückfragen oder einer persönlichen Anhörung führen.
               </p>
             </div>
           </div>

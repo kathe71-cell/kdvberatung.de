@@ -1,5 +1,3 @@
-import ScrollToTop from './components/ScrollToTop';
-import { Analytics } from '@vercel/analytics/react';
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -12,14 +10,24 @@ import LegalNotice from './components/LegalNotice';
 import FaqSection from './components/FaqSection';
 import Footer from './components/Footer';
 import StickyMobileBar from './components/StickyMobileBar';
+import ScrollToTop from './components/ScrollToTop';
 import ImpressumView from './components/ImpressumView';
 import DatenschutzView from './components/DatenschutzView';
 import RechnerEmbed from './components/RechnerEmbed';
+import { Analytics } from '@vercel/analytics/react';
 import { SpeedInsights } from '@vercel/speed-insights/react';
 import { Code2, Copy, Check, Scale, ShieldCheck, FileCheck2 } from 'lucide-react';
 
-export default function App() {
-  const [currentView, setCurrentView] = useState('home'); // 'home' | 'impressum' | 'datenschutz' | 'embed'
+export default function App({ initialPath } = {}) {
+  const getInitialView = () => {
+    const path = (initialPath || (typeof window !== 'undefined' ? window.location.pathname : '/')).toLowerCase();
+    const hash = (typeof window !== 'undefined' ? window.location.hash : '').toLowerCase();
+    if (path.includes('impressum') || hash.includes('impressum')) return 'impressum';
+    if (path.includes('datenschutz') || hash.includes('datenschutz')) return 'datenschutz';
+    if (path.includes('rechner-embed') || hash.includes('rechner-embed')) return 'embed';
+    return 'home';
+  };
+  const [currentView, setCurrentView] = useState(getInitialView);
   const [selectedLetterTab, setSelectedLetterTab] = useState('ungediente');
   const [copiedEmbed, setCopiedEmbed] = useState(false);
 
@@ -53,8 +61,41 @@ export default function App() {
     };
   }, []);
 
-  // Track SPA route changes in Vercel Analytics
+  // Per-Route Title, Description, Canonical & Vercel Analytics tracking
   useEffect(() => {
+    let title = "KDV-Beratung – Kriegsdienstverweigerung Antrag & Leitfaden";
+    let description = "Kriegsdienstverweigerung (KDV) nach Art. 4 Abs. 3 GG: Interaktiver Antrags-Navigator, Gewissensbegründung Muster, Fristen & Adressen für Soldaten & Ungediente.";
+    let canonical = "https://kdvberatung.de/";
+
+    if (currentView === 'impressum') {
+      title = "Impressum | KDV-Beratung kdvberatung.de";
+      description = "Impressum und rechtliche Anbieterkennzeichnung gemäß § 5 DDG und § 18 MStV für kdvberatung.de.";
+      canonical = "https://kdvberatung.de/impressum";
+    } else if (currentView === 'datenschutz') {
+      title = "Datenschutzerklärung | KDV-Beratung kdvberatung.de";
+      description = "Datenschutzerklärung nach DSGVO für kdvberatung.de: Informationen zu Webhosting, Vercel Analytics, Speed Insights und Google AdSense.";
+      canonical = "https://kdvberatung.de/datenschutz";
+    } else if (currentView === 'embed') {
+      title = "KDV-Statusnavigator Embed | kdvberatung.de";
+      description = "Interaktiver KDV-Statusnavigator als kompaktes Embed-Widget für Informationsportale und Beratungsstellen.";
+      canonical = "https://kdvberatung.de/rechner-embed";
+    }
+
+    document.title = title;
+
+    const metaDesc = document.querySelector('meta[name="description"]');
+    if (metaDesc) {
+      metaDesc.setAttribute('content', description);
+    }
+
+    let linkCanonical = document.querySelector('link[rel="canonical"]');
+    if (!linkCanonical) {
+      linkCanonical = document.createElement('link');
+      linkCanonical.setAttribute('rel', 'canonical');
+      document.head.appendChild(linkCanonical);
+    }
+    linkCanonical.setAttribute('href', canonical);
+
     if (typeof window !== 'undefined' && window.va) {
       window.va('pageview', { route: currentView });
     }
@@ -75,7 +116,7 @@ export default function App() {
   };
 
   const copyEmbedCode = () => {
-    const code = `<iframe src="https://kdvberatung.de/rechner-embed" width="100%" height="700" style="border:none; border-radius:16px; box-shadow:0 4px 16px rgba(0,0,0,0.08);" title="KDV Antrags-Navigator"></iframe>\n<p style="font-size:12px; color:#64748b; text-align:center;">Navigator bereitgestellt von <a href="https://kdvberatung.de" target="_blank" rel="noopener" style="color:#059669; text-decoration:underline;">kdvberatung.de</a></p>`;
+    const code = `<iframe id="kdv-embed-frame" src="https://kdvberatung.de/rechner-embed" width="100%" height="2800" style="border:none; border-radius:16px; width:100%; max-width:100%; overflow:hidden;" title="KDV Antrags-Navigator"></iframe>\n<script>\n  window.addEventListener('message', function(e) {\n    var allowed = ['https://kdvberatung.de', 'https://www.kdvberatung.de'];\n    if (e.origin && (allowed.indexOf(e.origin) !== -1) && e.data && e.data.type === 'kdv-embed-height') {\n      var h = parseInt(e.data.height, 10);\n      var f = document.getElementById('kdv-embed-frame');\n      if (f && !isNaN(h) && h > 200 && h < 10000 && e.source === f.contentWindow) {\n        f.style.height = (h + 20) + 'px';\n      }\n    }\n  });\n</script>\n<p style="font-size:12px; color:#64748b; text-align:center;">Navigator bereitgestellt von <a href="https://kdvberatung.de" target="_blank" rel="noopener" style="color:#059669; text-decoration:underline;">kdvberatung.de</a></p>`;
     navigator.clipboard.writeText(code);
     setCopiedEmbed(true);
     setTimeout(() => setCopiedEmbed(false), 2500);
@@ -165,7 +206,7 @@ export default function App() {
                 </button>
               </div>
               <div className="bg-slate-900 rounded-lg p-3 text-xs font-mono text-slate-300 overflow-x-auto border border-slate-800">
-                <code>{`<iframe src="https://kdvberatung.de/rechner-embed" width="100%" height="700" style="border:none; border-radius:16px;" title="KDV Antrags-Navigator"></iframe>\n<p style="font-size:12px; color:#64748b; text-align:center;">Bereitgestellt von <a href="https://kdvberatung.de" target="_blank" rel="noopener">kdvberatung.de</a></p>`}</code>
+                <code>{`<iframe id="kdv-embed-frame" src="https://kdvberatung.de/rechner-embed" width="100%" height="2800" style="border:none; border-radius:16px; width:100%; overflow:hidden;" title="KDV Antrags-Navigator"></iframe>\n<script>\n  window.addEventListener('message', function(e) {\n    var allowed = ['https://kdvberatung.de', 'https://www.kdvberatung.de'];\n    if (e.origin && (allowed.indexOf(e.origin) !== -1) && e.data && e.data.type === 'kdv-embed-height') {\n      var h = parseInt(e.data.height, 10);\n      var f = document.getElementById('kdv-embed-frame');\n      if (f && !isNaN(h) && h > 200 && h < 10000 && e.source === f.contentWindow) {\n        f.style.height = (h + 20) + 'px';\n      }\n    }\n  });\n</script>\n<p style="font-size:12px; color:#64748b; text-align:center;">Bereitgestellt von <a href="https://kdvberatung.de" target="_blank" rel="noopener">kdvberatung.de</a></p>`}</code>
               </div>
             </div>
           </div>
@@ -212,23 +253,23 @@ export default function App() {
                 <div>
                   <div className="flex items-center gap-1.5 font-bold text-slate-900 mb-1">
                     <ShieldCheck className="w-4 h-4 text-emerald-700" />
-                    <span>Verfassungsrechtlich gesichert</span>
+                    <span>Verfassungsrechtlicher Rahmen</span>
                   </div>
-                  <p>Systematische Aufbereitung der Rechtsprechung des Bundesverfassungsgerichts (BVerfGE) zum Grundrecht auf Kriegsdienstverweigerung.</p>
+                  <p>Aufbereitung der Rechtsprechung des Bundesverfassungsgerichts (BVerfG) zum Grundrecht auf Kriegsdienstverweigerung.</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5 font-bold text-slate-900 mb-1">
                     <FileCheck2 className="w-4 h-4 text-emerald-700" />
-                    <span>Verfahrensneutralität</span>
+                    <span>Unabhängiges Bürgerportal</span>
                   </div>
                   <p>Unabhängiges Informationsportal nach § 5 DDG ohne Verbandsbindung. Keine behördliche Vermittlungsgebühr.</p>
                 </div>
                 <div>
                   <div className="flex items-center gap-1.5 font-bold text-slate-900 mb-1">
                     <Scale className="w-4 h-4 text-emerald-700" />
-                    <span>BAPersBw-Konformität</span>
+                    <span>Rechtstransparenz</span>
                   </div>
-                  <p>Muster und Leitfäden orientiert an den formalen Kriterien des Bundesamtes für das Personalmanagement der Bundeswehr.</p>
+                  <p>Muster und Leitfäden orientiert an den Kriterien des KDVG für BAPersBw (Wehrersatzbehörde Köln) &amp; BAFzA.</p>
                 </div>
               </div>
             </div>
@@ -242,11 +283,11 @@ export default function App() {
       {/* Sticky Mobile Action Bar */}
       <StickyMobileBar />
 
+      <ScrollToTop />
+
       {/* Vercel Web Analytics & Performance Tracking */}
       <Analytics />
       <SpeedInsights />
-    <ScrollToTop />
-      <Analytics />
     </div>
   );
 }
