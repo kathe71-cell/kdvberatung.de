@@ -60,16 +60,6 @@ export default function ImpressumView({ onBack }) {
             </div>
           </section>
 
-          {/* Steuerliche Angaben & Kleinunternehmer */}
-          <section>
-            <h2 className="text-base font-bold text-slate-950 mb-2">
-              Umsatzsteuer / Kleinunternehmerregelung
-            </h2>
-            <p>
-              Als Kleinunternehmer im Sinne von <strong>§ 19 Abs. 1 UStG</strong> wird keine Umsatzsteuer berechnet und folglich auch nicht gesondert ausgewiesen.
-            </p>
-          </section>
-
           {/* MStV */}
           <section>
             <h2 className="text-base font-bold text-slate-950 mb-2">
