@@ -67,7 +67,7 @@ export default function DatenschutzView({ onBack }) {
               Wir hosten unsere Website bei der Vercel Inc., 440 N Barranca Ave #4133, Covina, CA 91723, USA. Beim Abruf von Seiten werden automatisch technisch erforderliche Server-Logfiles verarbeitet (z. B. IP-Adresse, Datum/Uhrzeit des Zugriffs, abgerufene Seite, Browser-Typ und Betriebssystem).
             </p>
             <p>
-              Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an einer sicheren und stabilen Auslieferung). Die Auftragsverarbeitung mit Vercel erfolgt auf Grundlage von EU-Standardvertragsklauseln.
+              Rechtsgrundlage ist <strong>Art. 6 Abs. 1 lit. f DSGVO</strong> (berechtigtes Interesse an einer sicheren und stabilen Auslieferung). Die Datenübertragung in die USA ist durch die Zertifizierung von Vercel unter dem EU-U.S. Data Privacy Framework (DPF) abgesichert.
             </p>
           </section>
 
