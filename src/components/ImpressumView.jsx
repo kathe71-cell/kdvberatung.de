@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowLeft, Shield, Scale, Mail, Phone, MapPin } from 'lucide-react';
+import { ArrowLeft, Shield, Scale, Mail, MapPin } from 'lucide-react';
 
 export default function ImpressumView({ onBack }) {
   return (
@@ -48,13 +48,6 @@ export default function ImpressumView({ onBack }) {
                 <span>E-Mail: </span>
                 <a href="mailto:jens@kathe.org" className="font-bold text-emerald-700 hover:underline">
                   jens@kathe.org
-                </a>
-              </div>
-              <div className="flex items-center gap-2">
-                <Phone className="w-4 h-4 text-slate-500" />
-                <span>Telefon: </span>
-                <a href="tel:+491786652623" className="font-bold text-emerald-700 hover:underline">
-                  +49 178 6652623
                 </a>
               </div>
             </div>

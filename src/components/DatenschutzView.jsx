@@ -54,7 +54,6 @@ export default function DatenschutzView({ onBack }) {
               34119 Kassel<br />
               Deutschland<br />
               E-Mail: jens@kathe.org<br />
-              Telefon: +49 178 6652623
             </div>
           </section>
 
