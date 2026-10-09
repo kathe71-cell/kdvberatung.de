@@ -36,7 +36,6 @@ export default function DatenschutzView({ onBack }) {
               Übersicht zur Datenverarbeitung
             </h3>
             <p className="text-xs sm:text-sm">
-              Auf dieser Website kommen modernes Cloud-Hosting (Vercel), aggregierte Reichweiten- und Performance-Messung (Vercel Analytics &amp; Speed Insights) sowie Online-Werbeeinbindungen (Google AdSense) zum Einsatz. Nachfolgend informieren wir Sie transparent über Art, Umfang und Zweck der Datenverarbeitung.
             </p>
           </div>
 
@@ -83,13 +82,10 @@ export default function DatenschutzView({ onBack }) {
             </p>
           </section>
 
-          {/* 4. Google AdSense */}
           <section>
             <h2 className="text-base font-bold text-slate-950 mb-2">
-              4. Werbeeinbindung (Google AdSense)
             </h2>
             <p className="mb-2">
-              Diese Website bindet Werbeanzeigen von Google AdSense (Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland) ein. Google AdSense verwendet Technologien wie Cookies oder Web Beacons, um Anzeigen bereitzustellen und deren Wirksamkeit zu messen.
             </p>
             <p className="mb-2">
               Dabei können Daten wie Ihre IP-Adresse, Geräte-Identifikatoren sowie Informationen zum Aufruf von Werbemitteln von Google verarbeitet werden. Bei der Darstellung von Anzeigen werden die Einstellungen der Einwilligungssteuerung (Consent Management / Cookie-Banner) beachtet.

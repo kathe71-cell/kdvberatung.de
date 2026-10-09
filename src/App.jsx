@@ -1,3 +1,4 @@
+import ProjektuebernahmePage from "./components/ProjektuebernahmePage";
 import React, { useState, useEffect } from 'react';
 import Header from './components/Header';
 import Hero from './components/Hero';
@@ -22,6 +23,7 @@ export default function App({ initialPath } = {}) {
   const getInitialView = () => {
     const path = (initialPath || (typeof window !== 'undefined' ? window.location.pathname : '/')).toLowerCase();
     const hash = (typeof window !== 'undefined' ? window.location.hash : '').toLowerCase();
+    if (path.includes('projektuebernahme') || hash.includes('projektuebernahme')) return 'projektuebernahme';
     if (path.includes('impressum') || hash.includes('impressum')) return 'impressum';
     if (path.includes('datenschutz') || hash.includes('datenschutz')) return 'datenschutz';
     if (path.includes('rechner-embed') || hash.includes('rechner-embed')) return 'embed';
@@ -37,7 +39,8 @@ export default function App({ initialPath } = {}) {
       const path = window.location.pathname.toLowerCase();
       const hash = window.location.hash.toLowerCase();
 
-      if (path.includes('impressum') || hash.includes('impressum')) {
+      if (path.includes('projektuebernahme') || hash.includes('projektuebernahme')) return 'projektuebernahme';
+    if (path.includes('impressum') || hash.includes('impressum')) {
         setCurrentView('impressum');
         window.scrollTo({ top: 0, behavior: 'smooth' });
       } else if (path.includes('datenschutz') || hash.includes('datenschutz')) {
@@ -67,13 +70,12 @@ export default function App({ initialPath } = {}) {
     let description = "Kriegsdienstverweigerung (KDV) nach Art. 4 Abs. 3 GG: Interaktiver Antrags-Navigator, Gewissensbegründung Muster, Fristen & Adressen für Soldaten & Ungediente.";
     let canonical = "https://kdvberatung.de/";
 
-    if (currentView === 'impressum') {
+    if (currentView === 'projektuebernahme' ? <ProjektuebernahmePage /> : currentView === 'impressum') {
       title = "Impressum | KDV-Beratung kdvberatung.de";
       description = "Impressum und rechtliche Anbieterkennzeichnung gemäß § 5 DDG und § 18 MStV für kdvberatung.de.";
       canonical = "https://kdvberatung.de/impressum";
     } else if (currentView === 'datenschutz') {
       title = "Datenschutzerklärung | KDV-Beratung kdvberatung.de";
-      description = "Datenschutzerklärung nach DSGVO für kdvberatung.de: Informationen zu Webhosting, Vercel Analytics, Speed Insights und Google AdSense.";
       canonical = "https://kdvberatung.de/datenschutz";
     } else if (currentView === 'embed') {
       title = "KDV-Statusnavigator Embed | kdvberatung.de";
@@ -147,7 +149,7 @@ export default function App({ initialPath } = {}) {
     );
   }
 
-  if (currentView === 'impressum') {
+  if (currentView === 'projektuebernahme' ? <ProjektuebernahmePage /> : currentView === 'impressum') {
     return (
       <>
         <ImpressumView onBack={() => navigateTo('home')} />
